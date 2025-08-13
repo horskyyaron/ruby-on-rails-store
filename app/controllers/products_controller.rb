@@ -1,4 +1,12 @@
 class ProductsController < ApplicationController
+  # edit, update and show require an existing record!
+  # thus, we can deduplicate into a before_action
+  # before_action allows to extract share code between actions
+  # and run it before the action
+  before_action :set_product, only: %i[ show edit update ]
+
+
+
   # this is an action! ('index' action) an entry point so rails will know where to go after a route has been
   # requested. this action will render `app/views/products/index.html.erb`.
   def index
@@ -11,7 +19,7 @@ class ProductsController < ApplicationController
   def show
     # params[:id] will give us the id from the query paramaters
     # then we use it to query the db to find it
-    @product = Product.find(params[:id])
+    # @product = Product.find(params[:id])
   end
 
   def new
@@ -38,11 +46,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+    # @product = Product.find(params[:id])
   end
 
   def update
-    @product = Product.find(params[:id])
+    # @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to @product
     else
@@ -52,6 +60,10 @@ class ProductsController < ApplicationController
   end
 
   private
+    def set_product
+      @product = Product.find(params[:id])
+    end
+
     def product_params
       params.expect(product: [ :name ])
     end

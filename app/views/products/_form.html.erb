@@ -1,0 +1,12 @@
+<!-- here we use local variable 'product' so it can be reused multiple times -->
+<!-- with different value each time -->
+<%= form_with model: product do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -5,13 +5,18 @@
 <!-- our app more secure -->
 <!-- the url is generated based on the :model provided -->
 
-<%= form_with model: @product do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<!-- # <%= form_with model: @product do |form| %> -->
+  <!-- #   <div> -->
+  <!-- #     <%= form.label :name %> -->
+  <!-- #     <%= form.text_field :name %> -->
+  <!-- #   </div> -->
+  <!-- # -->
+  <!-- #   <div> -->
+  <!-- #     <%= form.submit %> -->
+  <!-- #   </div> -->
+  <!-- # <% end %> -->
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<!-- here we tell it to render the partial _form and the product local variable -->
+<!-- will be set to the product Active Record -->
+<%= render "form", product: @product %>
+<%= link_to "Cancel", products_path %>
