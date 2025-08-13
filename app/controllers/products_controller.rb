@@ -7,4 +7,10 @@ class ProductsController < ApplicationController
     # like in the rails console!
     @products = Product.all
   end
+
+  def show
+    # params[:id] will give us the id from the query paramaters
+    # then we use it to query the db to find it
+    @product = Product.find(params[:id])
+  end
 end

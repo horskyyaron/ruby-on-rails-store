@@ -9,10 +9,19 @@
 <div id="products">
   <% @products.each do |product| %>
     <div>
-      <%= product.name %>
-    </div>
-    <div>
-      <%= product.id %>
+      <!-- running 'rails routes' we can see routes prefixes. -->
+      <!-- these gives us helpers like the following: -->
+      <!-- products_path generates "/products" -->
+      <!-- products_url generates "http://localhost:3000/products" -->
+      <!-- product_path(1) generates "/products/1" -->
+      <!-- product_url(1) generates "http://localhost:3000/products/1" -->
+      <!-- so we can refactor! -->
+      <!-- <a href="/products/<%=product.id%>"> -->
+      <!--   <%= product.name %> -->
+      <!-- </a> -->
+
+      <!-- first -> display content, second-> path or url to link for the href attribute -->
+      <%= link_to product.name, product %>
     </div>
   <% end %>
 </div>
