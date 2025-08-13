@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   # thus, we can deduplicate into a before_action
   # before_action allows to extract share code between actions
   # and run it before the action
-  before_action :set_product, only: %i[ show edit update ]
+  before_action :set_product, only: %i[ show edit update destroy ]
 
 
 
@@ -57,6 +57,11 @@ class ProductsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
 
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to products_path
   end
 
   private
