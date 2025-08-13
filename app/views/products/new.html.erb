@@ -1,0 +1,17 @@
+<h1>New product</h1>
+
+<!-- form_with helper is to help generate an html form to create products -->
+<!-- it uses a form builder to handle stuff like scrf token which make -->
+<!-- our app more secure -->
+<!-- the url is generated based on the :model provided -->
+
+<%= form_with model: @product do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
