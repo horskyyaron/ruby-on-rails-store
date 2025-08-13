@@ -1,4 +1,10 @@
 class ProductsController < ApplicationController
+  # this will grant access for unauth users for spesific pages
+  allow_unauthenticated_access only: %i[ index show]
+
+
+
+
   # edit, update and show require an existing record!
   # thus, we can deduplicate into a before_action
   # before_action allows to extract share code between actions
